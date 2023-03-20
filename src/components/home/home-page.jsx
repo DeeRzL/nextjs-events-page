@@ -6,14 +6,14 @@ import Link from 'next/link';
 export const HomePage = ({ data }) => {
   return (
     <div className='home_body'>
-      {data?.map((ev) => (
-        <Link key={ev.id} href={`/events/${ev.id}`}>
+      {data?.map(({id, title, image, description }) => (
+        <Link key={id} href={`/events/${id}`}>
             <div className='image'>
-              <Image src={ev.image} width={500} height={300} alt={ev.title} />
+              <Image src={image} width={500} height={300} alt={title} />
             </div>
             <div className='content'>
-              <h2>{ev.title}</h2>
-              <p>{ev.description}</p>
+              <h2>{title}</h2>
+              <p>{description}</p>
             </div>
         </Link>
       ))}
